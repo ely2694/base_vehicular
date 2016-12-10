@@ -1,0 +1,36 @@
+<br>
+<div class="form-panel">
+  <div class="container">
+    <div class="row">
+      <div class="section-title text-center">
+        <div class="feature">
+          <i class="fa fa-car"></i>
+          <h3>Consultar</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div align="center"><h4>Automoviles Registrados</h4></div>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th class="text-center">Marca </th>
+            <th class="text-center">Tipo </th>
+            <th class="text-center">Año </th>
+            <th class="text-center">Color </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="auto in autos">
+              <td class="text-center">{{::auto.marca}}</td>
+              <td class="text-center">{{::auto.tipo}}</td>
+              <td class="text-center">{{::auto.anio}}</td>
+              <td class="text-center">{{::auto.color}}</td>
+              <td><a ng-click="borrar(carro.id)" class="btn btn-sm" title="Eliminar"><i class="fa fa-trash"></i></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

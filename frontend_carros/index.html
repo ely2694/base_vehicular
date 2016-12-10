@@ -1,0 +1,52 @@
+<html ng-app="BaseVehicular">
+<head>
+    <meta charset="utf-8">
+    <title>Base Vehicular</title>
+
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome CSS -->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+    <link href="css/animate.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/jquery-ui.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+    <div ng-view></div>
+
+   <script src="js/angular.min.js"></script>
+   <script src="js/angular-route.min.js"></script>
+    <script type="text/javascript" src="js/carBase.js"></script>
+    <script type="text/javascript" src="controllers/carController.js"></script>
+    <script type="text/javascript" src="services/carService.js"></script>
+    <script type="text/javascript" src="models/carModel.js"></script>
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/jquery.appear.js"></script>
+    <script src="js/contact_me.js"></script>
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/modernizr.custom.js"></script>
+    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script type="text/javascript">
+    $(document).ready(function () {
+      $(function () {
+        $("#datepicker").datepicker();
+        $("#format").change(function () {
+          $("#datepicker").datepicker("option", "dateFormat", $(this).val());
+        });
+      });
+    });
+    </script>
+</body>
+</html>

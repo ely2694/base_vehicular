@@ -1,0 +1,294 @@
+ <section id="logo-section" class="text-center">
+     <div class="container">
+         <div class="row">
+             <div class="col-md-12">
+                 <div class="logo text-center">
+                     <h1>Base Vehicular</h1>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </section>
+ <div class="mainbody-section text-center">
+     <div class="container">
+         <div class="row">
+
+             <div class="col-md-3">
+
+                 <div class="menu-item blue">
+                     <a href="#feature-modal" data-toggle="modal">
+                         <i class="fa fa-user"></i>
+                         <p>Agregar Persona</p>
+                     </a>
+                 </div>
+
+                 <div class="menu-item green">
+                     <a href="#portfolio-modal" data-toggle="modal"  ng-click="getPersonas()">
+                         <i class="fa fa-car"></i>
+                         <p>Agregar Automovil</p>
+                     </a>
+                 </div>
+             </div>
+
+             <div class="col-md-6">
+                 <div class="home-slider">
+                     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="padding-bottom: 30px;">
+
+                         <ol class="carousel-indicators">
+                             <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                             <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                             <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                         </ol>
+
+                         <div class="carousel-inner">
+                             <div class="item active">
+                                 <img src="images/about-3.jpeg" class="img-responsive" alt="">
+                             </div>
+                             <div class="item">
+                                 <img src="images/about-2.jpeg" class="img-responsive" alt="">
+                             </div>
+                             <div class="item">
+                                 <img src="images/about-1.jpeg" class="img-responsive" alt="">
+                             </div>
+
+                         </div>
+
+                     </div>
+                 </div>
+             </div>
+
+             <div class="col-md-3">
+
+                 <div class="menu-item light-red">
+                     <a href="#contact-modal" data-toggle="modal">
+                         <i class="fa fa-envelope-o"></i>
+                         <p>Consultar</p>
+                     </a>
+                 </div>
+
+                 <div class="menu-item color">
+                     <a href="#testimonial-modal" data-toggle="modal">
+                         <i class="fa fa-comment-o"></i>
+                         <p>Cómo?</p>
+                     </a>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
+ <div class="section-modal modal fade" id="feature-modal" tabindex="-1" role="dialog" aria-hidden="true">
+     <div class="modal-content">
+         <div class="close-modal" data-dismiss="modal">
+             <div class="lr">
+                 <div class="rl">
+                 </div>
+             </div>
+         </div>
+
+         <div class="container">
+             <div class="row">
+                 <div class="section-title text-center">
+                   <div class="feature">
+                     <i class="fa fa-user"></i>
+                     <h3>Agregar persona</h3>
+                   </div>
+                 </div>
+             </div>
+             <div class="row">
+                 <div class="col-md-4 col-sm-8 col-xs-12">
+                     <div class="feature">
+                         <div class="feature-content">
+                             <h5>Nombre</h5>
+                             <input type="text" name="nombre" class="form-control"
+                             ng-model="persona.nombre">
+                         </div>
+                     </div>
+                 </div><!-- /.col-md-3 -->
+                 <div class="col-md-4 col-sm-8 col-xs-12">
+                     <div class="feature">
+                         <div class="feature-content">
+                           <h5>Apellido Paterno</h5>
+                           <input type="text" name="paterno" class="form-control"
+                           ng-model="persona.paterno">
+                           <h5>Fecha de nacimiento</h5>
+                           <input type="text" name="fecha" id="datepicker" class="form-control"
+                           ng-model="persona.fecha" placeholder="YYYY-MM-DD HH:MM">
+                         </div>
+                     </div>
+                 </div><!-- /.col-md-3 -->
+                 <div class="col-md-4 col-sm-8 col-xs-12">
+                     <div class="feature">
+                         <div class="feature-content">
+                           <h5>Apellido Materno</h5>
+                           <input type="text" name="materno" class="form-control"
+                           ng-model="persona.materno">
+                         </div>
+                     </div>
+                 </div><!-- /.col-md-3 -->
+             </div><!-- /.row -->
+             <div class="row" align="right">
+               <a class="btn btn-success" ng-click="guardar()"><i class="fa fa-save"></i> Guardar</a>
+               <a class="btn btn-warning" ng-click="limpiar()"><i class="fa fa-edit"></i> Limpiar</a>
+             </div>
+         </div>
+     </div>
+ </div>
+ <div class="section-modal modal fade" id="portfolio-modal" tabindex="-1" role="dialog" aria-hidden="true">
+     <div class="modal-content">
+         <div class="close-modal" data-dismiss="modal">
+             <div class="lr">
+                 <div class="rl">
+                 </div>
+             </div>
+         </div>
+
+         <div class="container">
+             <div class="row">
+                 <div class="section-title text-center">
+                   <div class="feature">
+                     <i class="fa fa-car"></i>
+                     <h3>Agregar automovil</h3>
+                   </div>
+                 </div>
+             </div>
+             <div class="row">
+               <table class="table table-hover">
+                 <thead>
+                   <tr>
+                     <th class="text-center">Nombre</th>
+                   </tr>
+                 </thead>
+                 <tbody>
+                   <tr ng-repeat="persona in personas">
+                       <td class="text-center">
+                         <a ng-click="addCar(persona.id)" style="cursor: pointer;">{{::persona.nombre}}</a>
+                     </td>
+                     <td>
+                       <div class="container" id="add_{{persona.id}}" style="display: none;">
+                         <div class="col-lg-3">
+                           <input type="text" name="marca" class="form-control"
+                           ng-model="auto.marca" placeholder="Marca">
+                         </div>
+                         <div class="col-lg-3">
+                           <input type="text" name="tipo" class="form-control"
+                           ng-model="auto.tipo" placeholder="Tipo">
+                         </div>
+                         <div class="col-lg-3">
+                           <input type="text" name="anio" class="form-control"
+                           ng-model="auto.anio" placeholder="Año">
+                         </div>
+                         <div class="col-lg-3">
+                           <input type="text" name="color" class="form-control"
+                           ng-model="auto.color" placeholder="Color">
+                         </div>
+                         <div class="col-lg-11" align="right">
+                           <br>
+                           <a class="btn btn-success" ng-click="guardarAuto(persona.id)"><i class="fa fa-save"></i> Guardar</a>
+                           <a class="btn btn-danger" ng-click="ocultar(persona.id)"><i class="fa fa-close"></i> Cancelar</a>
+                         </div>
+                       </div>
+                     </td>
+                   </tr>
+                 </tbody>
+               </table>
+             </div><!-- /.row -->
+         </div>
+     </div>
+ </div>
+
+ <div class="section-modal modal fade contact" id="contact-modal" tabindex="-1" role="dialog" aria-hidden="true">
+     <div class="modal-content">
+         <div class="close-modal" data-dismiss="modal">
+             <div class="lr">
+                 <div class="rl">
+                 </div>
+             </div>
+         </div>
+
+         <div class="container">
+             <div class="row">
+                 <div class="section-title text-center">
+                   <div class="feature">
+                     <i class="fa fa-car"></i>
+                     <h3>Consultar automoviles</h3>
+                   </div>
+                 </div>
+             </div>
+             <div class="row">
+               <table class="table table-hover">
+                 <thead>
+                   <tr>
+                     <th class="text-center">Nombre</th>
+                   </tr>
+                 </thead>
+                 <tbody>
+                   <tr ng-repeat="persona in personas">
+                       <td class="text-center">
+                         <a href="#/cars" style="cursor: pointer;">{{::persona.nombre}}</a>
+                     </td>
+                   </tr>
+                 </tbody>
+               </table>
+             </div><!-- /.row -->
+         </div>
+     </div>
+ </div>
+
+ <div class="section-modal modal fade contact" id="testimonial-modal" tabindex="-1" role="dialog" aria-hidden="true">
+     <div class="modal-content">
+         <div class="close-modal" data-dismiss="modal">
+             <div class="lr">
+                 <div class="rl">
+                 </div>
+             </div>
+         </div>
+
+         <div class="container">
+             <div class="row">
+                 <div class="feature">
+                   <i class="fa fa-newspaper-o"></i>
+                     <h3>Guía de uso</h3>
+                 </div>
+             </div>
+             <div class="row">
+                 <div class="col-md-4">
+                     <div class="testimonial">
+                       <h4>Agregar personas</h4>
+                       <div class="speech">
+                           <p>En esta seccion puedes agregar nuevas <br>
+                             personas en la base de datos.<br>
+                             Solo necesitamos el nombre, apellidos <br>
+                             y la fecha de nacimiento.</p>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial">
+                      <h4>Agregar automoviles</h4>
+                      <div class="speech">
+                          <p>En esta sección puedes agregarle un <br>
+                             coche a la persona que desees<br>
+                             Lo que hace falta es darle click <br>
+                             a la persona y te aparecera un formulario<br>
+                             para que agregues marca, tipo, año y el <br>
+                             color del coche</p>
+                     </div>
+                   </div>
+               </div>
+               <div class="col-md-4">
+                   <div class="testimonial">
+                     <h4>Consultar</h4>
+                     <div class="speech">
+                         <p>En esta sección puedes consultar todos <br>
+                            los autos de cada persona y si lo <br>
+                            deseas eliminar alguno</p>
+                    </div>
+                  </div>
+              </div>
+
+           </div><!--/.row -->
+
+
+     </div>
+ </div>
+ </div>
